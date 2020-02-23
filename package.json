@@ -1,0 +1,30 @@
+{
+  "name": "db-travis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/*.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranavcbalan/db-travis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranavcbalan/db-travis/issues"
+  },
+  "homepage": "https://github.com/pranavcbalan/db-travis#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "knex": "^0.20.10",
+    "mocha": "^7.0.1",
+    "mysql": "^2.18.1",
+    "pg": "^7.18.2"
+  }
+}

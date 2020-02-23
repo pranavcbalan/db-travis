@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - '12'
+  - 'node'
+services:
+  - mysql
+  - postgresql
+install:
+  - npm install
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS chinook;'
+  - mysql -u root --default-character-set=utf8 chinook < test/mysql.chinook.sql
+before_script:
+  - psql -c 'create database chinook;' -U postgres
+  - psql -U postgres chinook < test/pg.chinook.sql
+script:
+  - npm test
