@@ -34,6 +34,9 @@ describe('Describe Test Scenarios', function () {
   it('Describe test - mysql', async function (done) {
     //testcase
 
+    console.log(JSON.stringify(await knexMysql.raw('show tables'), 0, 2))
+
+
     let res = await knexMysql('Album').select('*');
 
     expect(res.length).to.not.equal(0)
