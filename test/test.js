@@ -43,13 +43,15 @@ describe('Describe Test Scenarios', function () {
     done();
   });
 
-  it('Describe test - pg', async function (done) {
+  it('Describe test - pg',  function (done) {
     //testcase
 
-    let res = await knexPg('Album').select('*');
+    knexPg('Album').select('*').then(res=>{
 
-    expect(res.length).to.not.equal(0)
-    done();
+      expect(res.length).to.not.equal(0)
+      done();
+    });
+
   });
 
 });
