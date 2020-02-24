@@ -31,16 +31,16 @@ describe('Describe Test Scenarios', function () {
     done();
   });
 
-  it('Describe test - mysql', async function (done) {
+  it('Describe test - mysql', function (done) {
     //testcase
 
-    console.log(JSON.stringify(await knexMysql.raw('show tables'), 0, 2))
 
 
-    let res = await knexMysql('Album').select('*');
+    knexMysql('Album').select('*').then(res=>{
 
-    expect(res.length).to.not.equal(0)
-    done();
+      expect(res.length).to.not.equal(0)
+      done();
+    }).catch(done);
   });
 
   it('Describe test - pg',  function (done) {
@@ -50,7 +50,7 @@ describe('Describe Test Scenarios', function () {
 
       expect(res.length).to.not.equal(0)
       done();
-    });
+    }).catch(done);
 
   });
 
