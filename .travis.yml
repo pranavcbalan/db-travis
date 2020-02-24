@@ -5,9 +5,11 @@ node_js:
 services:
   - mysql
   - postgresql
+  - docker
 install:
   - npm install
 before_install:
+  - docker-compose up
   - mysql -e 'CREATE DATABASE IF NOT EXISTS chinook;'
   - mysql -u root --default-character-set=utf8 chinook < test/mysql.chinook.sql
 before_script:
